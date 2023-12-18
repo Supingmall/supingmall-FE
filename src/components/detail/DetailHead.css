@@ -1,0 +1,51 @@
+.detailpage {
+    width: 1000px;
+    margin: auto;
+}
+
+/* 상세페이지 헤더디자인 */
+.detail-head__container {
+    width: 100%;
+    display: flex;
+
+}
+
+.detail-head__imagebox {
+    width: 400px;
+    border: 1px solid black;
+}
+
+.detail-head__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.detail-head__description_area {
+    width: 100%;
+
+    margin-left: 2rem;
+}
+
+
+
+
+
+/* 카운터 */
+.detail-head__counter {
+    display: flex;
+}
+
+/* 버튼박스 */
+.detail-head__buttonbox {
+    display: flex;
+}
+
+/* 제품설명 상세이미지 */
+.detail-body__deatil_image_container {
+    width: 100%;
+}
+
+.detail-body__deatil_image {
+    width: 100%;
+}
