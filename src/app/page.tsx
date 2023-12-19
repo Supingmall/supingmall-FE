@@ -1,10 +1,12 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-
 export default function Home() {
   return (
     <>
-      슈핑몰시작
+      <div className="header">헤더입니다.</div>
+      <div className="nav">네비바</div>
+      <h2>현재 카테고리</h2>
+      <div className="item-container">
+        <div className="item"></div>
+      </div>
     </>
-  )
+  );
 }
