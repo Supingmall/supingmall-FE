@@ -1,0 +1,9 @@
+h2 {
+  font-size: 3rem;
+  margin: 20px;
+}
+
+h2 span {
+  color: var(--main-color);
+  font-weight: 700;
+}
