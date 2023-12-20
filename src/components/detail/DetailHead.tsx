@@ -1,5 +1,6 @@
 "use client"
 
+import Counter from "../common/counter/Counter"
 import "./DetailHead.css"
 
 const DetailHead = () => {
@@ -51,11 +52,7 @@ const DetailHead = () => {
                         </select>
                     </div>
                     {/* 맥스는 재고수량까지 */}
-                    <div className='detail-head__counter'>
-                        <div>+</div>
-                        <input type="number" min="0" max="100" step="1" />
-                        <div>-</div>
-                    </div>
+                    <Counter width={"500px"} height={""} />
                     {/* 버튼들 */}
                     <div className='detail-head__buttonbox'>
                         <button>구매하기</button>
@@ -67,7 +64,7 @@ const DetailHead = () => {
             <div className='detail-body__deatil_image_container'>
                 <img className='detail-body__deatil_image' src="/detailpage/detailimage.jpeg" alt="" />
             </div>
-        </div>
+        </div >
     );
 };
 
