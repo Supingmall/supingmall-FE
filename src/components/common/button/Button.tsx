@@ -1,9 +1,8 @@
 "use client";
-import React from "react";
-import { PropsWithChildren } from "react";
+import React, { ComponentProps } from "react";
 import * as S from "./Button.style";
 
-interface ButtonProps {
+interface ButtonProps extends ComponentProps<"button"> {
   desc: string;
   size: "big" | "medium" | "small";
   bg?: string;
