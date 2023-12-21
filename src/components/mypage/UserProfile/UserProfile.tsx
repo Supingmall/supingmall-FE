@@ -9,9 +9,10 @@ type UserProfileProps = {
 export default function UserProfile({ imgUrl, nickname }: UserProfileProps) {
   return (
     <div className={styles.container}>
-      <div>
-        <Image src={imgUrl} alt="프로필사진" fill={true} />
+      <div className={styles.img_box}>
+        <Image src={imgUrl} alt="프로필사진" width={100} height={100} />
       </div>
+      <p>{nickname}</p>
     </div>
   );
 }

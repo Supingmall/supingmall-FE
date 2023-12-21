@@ -5,3 +5,10 @@
   align-items: center;
   gap: 10px;
 }
+
+.img_box {
+  width: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
