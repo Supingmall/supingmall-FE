@@ -70,7 +70,7 @@ export const ItemContainer = styled.div`
 
   // 테블릿 가로
   @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   // 모바일 가로 & 테블릿 세로

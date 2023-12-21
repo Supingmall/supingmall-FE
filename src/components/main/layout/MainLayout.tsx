@@ -6,6 +6,7 @@ import { NaviBar } from "../naviBar/NaviBar";
 import Button from "@/components/common/button/Button";
 import { CategoryTitle } from "../categoryTitle/CategoryTitle";
 import Item from "../Item/Item";
+import Input from "@/components/common/input/Input";
 
 const MainLayout = () => {
   /**Item render하는 함수 */
@@ -35,6 +36,12 @@ const MainLayout = () => {
       />
       <Button desc="초록배경이여랏" size="medium" bg="#9BE400" bold={300} />
       <Button desc="내용을 넣어볼까?" size="small" color="#FA6C67" />
+
+      {/* <Input placeholder="비밀번호를 입력해주세요." size="big" /> */}
+      <Input size="big" placeHolder="big" />
+      <Input size="medium" placeHolder="medium" />
+      <Input size="small" placeHolder="small" />
+
       <S.HeaderWrap>헤더입니다.</S.HeaderWrap>
       <NaviBar />
       <S.ItemContainerWrap>

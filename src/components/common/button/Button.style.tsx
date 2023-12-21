@@ -24,10 +24,10 @@ export const Button = styled.button<ButtonStyleProps>`
   border: none;
   cursor: pointer;
 
-  padding: ${(props) => size[props.size].padding};
-  border-radius: ${(props) => size[props.size].borderRadius};
+  padding: ${(p) => size[p.size].padding};
+  border-radius: ${(p) => size[p.size].borderRadius};
 
-  background-color: ${(props) => props.bg};
-  color: ${(props) => props.color};
-  font-weight: ${(props) => props.bold};
+  background-color: ${(p) => p.bg};
+  color: ${(p) => p.color};
+  font-weight: ${(p) => p.bold};
 `;
