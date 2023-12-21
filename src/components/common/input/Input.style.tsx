@@ -63,6 +63,4 @@ export const Input = styled.input<InputStyleProps>`
   height: ${(p) => size[p._size].height};
   padding: ${(p) => size[p._size].padding};
   border-radius: ${(p) => size[p._size].borderRadius};
-
-  /* padding: 20px; */
 `;

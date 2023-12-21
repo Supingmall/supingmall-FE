@@ -9,5 +9,5 @@ interface InputProps
   bg?: string;
 }
 export default function Input({ size, placeHolder, ...rest }: InputProps) {
-  return <S.Input _size={size} placeHolder={placeHolder} {...rest} />;
+  return <S.Input _size={size} placeholder={placeHolder} {...rest} />;
 }
