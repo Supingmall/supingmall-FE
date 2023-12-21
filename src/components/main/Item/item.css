@@ -1,0 +1,40 @@
+.item {
+  width: 100%;
+  height: 380px;
+  border: 1px solid;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.item-img-box {
+  width: 100%;
+  height: 280px;
+  background-color: pink;
+  position: relative;
+}
+
+.meta-container {
+  padding: 5px;
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+.name {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.price {
+  margin: 5px 0 10px;
+}
+.review-container {
+  display: flex;
+  align-items: center;
+}
+.score {
+  margin: 0 2px 0 5px;
+  font-weight: bold;
+}
+.total {
+}
