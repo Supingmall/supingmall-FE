@@ -52,7 +52,7 @@ const DetailHead = () => {
                         </select>
                     </div>
                     {/* 맥스는 재고수량까지 */}
-                    <Counter width={"500px"} height={""} />
+                    <Counter width={"500px"} height={"20px"} />
                     {/* 버튼들 */}
                     <div className='detail-head__buttonbox'>
                         <button>구매하기</button>
