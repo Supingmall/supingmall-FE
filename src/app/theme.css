@@ -13,3 +13,7 @@
 html {
   font-size: var(--font-size);
 }
+
+a {
+  text-decoration: none;
+}

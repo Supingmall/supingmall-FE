@@ -1,3 +1,4 @@
+import UserMenu from "../UserMenu/UserMenu";
 import UserProfile from "../UserProfile/UserProfile";
 import styles from "./MyPageSideBar.module.css";
 
@@ -15,7 +16,7 @@ const userInfo = {
     "https://cdn.pixabay.com/photo/2023/09/24/14/05/dog-8272860_1280.jpg",
   address: "서울",
   created_at: "2023년 12월 20일 - 17시 06분",
-  user_roles: ["ROLE_USER"],
+  user_roles: ["판매자"],
 };
 
 export default function MyPageSideBar() {
@@ -23,6 +24,7 @@ export default function MyPageSideBar() {
     <aside className={styles.container}>
       <UserProfile imgUrl={userInfo.image_url} nickname={userInfo.nick_name} />
       <hr />
+      <UserMenu userRole={userInfo.user_roles[0]} />
     </aside>
   );
 }

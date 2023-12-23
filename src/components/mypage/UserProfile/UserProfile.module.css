@@ -3,11 +3,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 2rem;
+  padding: 1rem 0;
 }
 
 .img_box {
-  width: 100px;
+  width: 10rem;
   overflow: hidden;
   border-radius: 50%;
   box-sizing: border-box;
