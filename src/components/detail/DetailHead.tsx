@@ -1,9 +1,18 @@
 "use client"
 
+import { useState } from "react";
 import Counter from "../common/counter/Counter"
+import StarPoint from "../common/starpoint/StarPoint";
+
+
+
 import "./DetailHead.css"
 
 const DetailHead = () => {
+    const [starPoint, setStarPoint] = useState(1)
+    const category = {
+
+    }
     return (
         <div className='detailpage'>
             <div className='detail-head__container'>
@@ -16,7 +25,7 @@ const DetailHead = () => {
                     </div>
                     {/* 별점 컴포넌트로 대체 */}
                     <div>
-                        별표 평점 평가하는곳
+                        <StarPoint starPoint={starPoint} setStarPoint={setStarPoint} />
                     </div>
                     <div>
                         200,000원
@@ -52,7 +61,7 @@ const DetailHead = () => {
                         </select>
                     </div>
                     {/* 맥스는 재고수량까지 */}
-                    <Counter width={"500px"} height={"20px"} />
+                    <Counter width={"100%"} height={"20px"} />
                     {/* 버튼들 */}
                     <div className='detail-head__buttonbox'>
                         <button>구매하기</button>
