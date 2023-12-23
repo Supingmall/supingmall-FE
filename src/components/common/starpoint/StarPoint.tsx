@@ -15,6 +15,7 @@ interface StarPointProps {
 
 const StarPoint: React.FC<StarPointProps> = ({ starPoint, setStarPoint }) => {
 
+    const roundedStarPoint = Math.round(starPoint)
     const starPointHandler = (e: React.MouseEvent<HTMLDivElement>) => {
         let id = Number(e.currentTarget.id)
         setStarPoint(id)
@@ -25,7 +26,7 @@ const StarPoint: React.FC<StarPointProps> = ({ starPoint, setStarPoint }) => {
                 <div className={Style["star_wrap"]}>
                     {[1, 2, 3, 4, 5].map((value) => (
                         <div key={value} onClick={starPointHandler} id={value.toString()}>
-                            <img className={Style["star"]} src={starPoint >= value ? "/detailpage/star_after.svg" : "/detailpage/star_before.svg"} />
+                            <img className={Style["star"]} src={roundedStarPoint >= value ? "/detailpage/star_after.svg" : "/detailpage/star_before.svg"} />
                         </div>
                     ))}
                 </div>
