@@ -7,6 +7,11 @@ interface StarPointProps {
     setStarPoint: (value: number) => void;
 }
 
+/**
+ * 별점을 클릭하여 평점을 매길 수 있는 StarPoint 컴포넌트입니다.
+ * `starPoint` prop은 현재 선택된 별점을 나타내고, `setStarPoint` prop은 선택된 별점을 설정하는 함수입니다.
+ * 사용될 부모 컴포넌트에서 starPoint의 상태를 만들어주고 초기값을 1 넣어주세요
+ */
 
 const StarPoint: React.FC<StarPointProps> = ({ starPoint, setStarPoint }) => {
 
