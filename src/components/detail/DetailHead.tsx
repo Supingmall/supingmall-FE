@@ -4,42 +4,11 @@ import { useState } from "react";
 import Counter from "../common/counter/Counter"
 import StarPoint from "../common/starpoint/StarPoint";
 import "./DetailHead.css"
+import Selector from "./Selector";
 
+import testData from './test.json';
 
-// const response = {
-//     code: "200",
-//     message: "success",
-//     product_id: 1,
-//     product_name: "후드티",
-//     product_price: 2,
-//     category: "상의",
-//     product_status: "판매중",
-//     create_at: "2023-12-20",
-//     finish_at: "2023-12-31",
-//     score_avg: 4.0,
-
-//     product_photo: {
-//         product_photo_id: 1,
-//         photo_url: "/image",
-//         photo_type: true
-//     },
-//     product_detail_list: {
-//         color: "검정색",
-//         product_size: "xl",
-//         stock: 500,
-//     },
-//     product_review: {
-//         review_id: 1,
-//         user_id: 1,
-//         product_id: 1,
-//         nickName: "홍길동",
-//         review_contents: "제품이좋아요",
-//         create_at: "2023-12-25",
-//         score: 1
-//     }
-
-// }safa
-
+let productDetailList = testData.productDetailList
 const DetailHead = () => {
     const [starPoint, setStarPoint] = useState(1)
     const category = {
@@ -64,10 +33,8 @@ const DetailHead = () => {
                     </div>
                     {/* 셀렉터 컴포넌트로 대체 */}
                     <div>
-                        색상<select>
-                            <option value="black">Black</option>
-                            <option value="white">White</option>
-                        </select>
+                        색상
+                        <Selector color={productDetailList.map(item => item['color'])} />
                     </div>
                     {/* 사이즈 컴포넌트로 대체 */}
                     <div>
@@ -93,7 +60,7 @@ const DetailHead = () => {
                         </select>
                     </div>
                     {/* 맥스는 재고수량까지 */}
-                    <Counter width={"100%"} height={"20px"} />
+                    <Counter width={"300px"} height={"40px"} />
                     {/* 버튼들 */}
                     <div className='detail-head__buttonbox'>
                         <button>구매하기</button>
