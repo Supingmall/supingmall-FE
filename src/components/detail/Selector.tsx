@@ -1,18 +1,16 @@
 import React from 'react';
 type Props = {
-    color: []
+    item: string[]
 }
 
 
-const Selector = ({ color }: any) => {
-    console.log(color)
+const Selector = ({ item }: Props) => {
     return (
         <div>
             <select>
-                {color?.map((item: string) => {
-                    return (<option value={item}>{item}</option>)
+                {item?.map((item: string) => {
+                    return (<option key={item} value={item}>{item}</option>)
                 })}
-
             </select>
         </div>
     );
