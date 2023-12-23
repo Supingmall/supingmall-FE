@@ -1,0 +1,5 @@
+.container {
+  padding: 1rem 3rem;
+  height: 100vh; /* 헤더 높이 정해지면 해당 높이로 수정해야함 */
+  border-right: 1px solid #555;
+}
