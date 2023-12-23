@@ -3,10 +3,42 @@
 import { useState } from "react";
 import Counter from "../common/counter/Counter"
 import StarPoint from "../common/starpoint/StarPoint";
-
-
-
 import "./DetailHead.css"
+
+
+// const response = {
+//     code: "200",
+//     message: "success",
+//     product_id: 1,
+//     product_name: "후드티",
+//     product_price: 2,
+//     category: "상의",
+//     product_status: "판매중",
+//     create_at: "2023-12-20",
+//     finish_at: "2023-12-31",
+//     score_avg: 4.0,
+
+//     product_photo: {
+//         product_photo_id: 1,
+//         photo_url: "/image",
+//         photo_type: true
+//     },
+//     product_detail_list: {
+//         color: "검정색",
+//         product_size: "xl",
+//         stock: 500,
+//     },
+//     product_review: {
+//         review_id: 1,
+//         user_id: 1,
+//         product_id: 1,
+//         nickName: "홍길동",
+//         review_contents: "제품이좋아요",
+//         create_at: "2023-12-25",
+//         score: 1
+//     }
+
+// }safa
 
 const DetailHead = () => {
     const [starPoint, setStarPoint] = useState(1)
