@@ -1,10 +1,5 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import MainLayout from "@/components/main/layout/MainLayout";
 
 export default function Home() {
-  return (
-    <>
-      슈핑몰시작
-    </>
-  )
+  return <MainLayout />;
 }
