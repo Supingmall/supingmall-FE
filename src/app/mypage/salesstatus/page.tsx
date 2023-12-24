@@ -1,3 +1,4 @@
+import SalesTable from "@/components/mypage/SalesTable/SalesTable";
 import styles from "./page.module.css";
 
 export default function SalesStatus() {
@@ -8,8 +9,7 @@ export default function SalesStatus() {
         <input />
         {/* 검색 창 들어갈 자리 */}
       </div>
-      <div>테이블 자리</div>
-      {/* 테이블 컴포넌트 들어갈 자리 */}
+      <SalesTable />
     </section>
   );
 }
