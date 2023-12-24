@@ -5,15 +5,18 @@ import Counter from "../common/counter/Counter"
 import StarPoint from "../common/starpoint/StarPoint";
 import "./DetailHead.css"
 import Selector from "./Selector";
-
 import testData from './test.json';
+import DetailReview from "./DetailReview";
+import shoping from "@/function/shoping";
 
-let productDetailList = testData.productDetailList
+const productDetailList = testData.productDetailList
+const productReview = testData.productReview
+
 const DetailHead = () => {
-    const [starPoint, setStarPoint] = useState(1)
-    const category = {
+    const [starPoint, setStarPoint] = useState(testData.scoreAvg)
 
-    }
+
+
     return (
         <div className='detailpage'>
             <div className='detail-head__container'>
@@ -24,50 +27,31 @@ const DetailHead = () => {
                     <div >
                         <h2>제품이름</h2>
                     </div>
-                    {/* 별점 컴포넌트로 대체 */}
                     <div>
-                        <StarPoint starPoint={starPoint} setStarPoint={setStarPoint} />
+                        평점 : {starPoint} <StarPoint starPoint={starPoint} setStarPoint={() => { }} />
                     </div>
                     <div>
-                        200,000원
+                        가격 : {testData.productPrice}
                     </div>
-                    {/* 셀렉터 컴포넌트로 대체 */}
                     <div>
                         색상
-                        <Selector color={productDetailList.map(item => item['color'])} />
+                        <Selector item={productDetailList.map(item => item['color'])} />
                     </div>
                     {/* 사이즈 컴포넌트로 대체 */}
                     <div>
                         사이즈
-                        {/* 신발일떄 */}
-                        <select>
-                            <option value="220">220</option>
-                            <option value="230">230</option>
-                            <option value="240">240</option>
-                            <option value="250">250</option>
-                            <option value="260">260</option>
-                            <option value="270">270</option>
-                            <option value="280">280</option>
-                            <option value="290">290</option>
-                            <option value="300">300</option>
-                        </select>
-                        {/* 옷일때 */}
-                        <select>
-                            <option value="s">S</option>
-                            <option value="m">M</option>
-                            <option value="l">L</option>
-                            <option value="xl">XL</option>
-                        </select>
+                        <Selector item={productDetailList.map(item => item['product_size'])} />
                     </div>
                     {/* 맥스는 재고수량까지 */}
                     <Counter width={"300px"} height={"40px"} />
                     {/* 버튼들 */}
                     <div className='detail-head__buttonbox'>
                         <button>구매하기</button>
-                        <button>장바구니</button>
+                        <button onClick={장바구니}>장바구니</button>
                     </div>
                 </div>
             </div>
+            <DetailReview reviewlist={productReview} />
             {/* 제품설명 상세이미지 */}
             <div className='detail-body__deatil_image_container'>
                 <img className='detail-body__deatil_image' src="/detailpage/detailimage.jpeg" alt="" />
