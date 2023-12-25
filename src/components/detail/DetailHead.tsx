@@ -46,7 +46,7 @@ const DetailHead = () => {
                     {/* 버튼들 */}
                     <div className='detail-head__buttonbox'>
                         <button>구매하기</button>
-                        <button onClick={장바구니}>장바구니</button>
+                        <button >장바구니</button>
                     </div>
                 </div>
             </div>

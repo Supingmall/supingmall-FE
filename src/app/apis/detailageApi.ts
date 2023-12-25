@@ -13,12 +13,11 @@ export const fetchData = async (url: string): Promise<any> => {
 
 
 
-export const fatchData = async (url: string): Promise<any> => {
+export const fatchData = async (url: string) => {
     const response = await fetch(url, {
         headers: "",
         method: "post",
         body: {
-
         }
     })
     const data = response.json()

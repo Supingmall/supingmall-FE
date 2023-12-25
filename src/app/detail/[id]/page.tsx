@@ -1,6 +1,9 @@
 import DetailHead from "@/components/detail/DetailHead";
 
 const Detail = (props: any) => {
+    console.log(props)
+    console.log("test")
+
     return (
         <div>
             <div>
