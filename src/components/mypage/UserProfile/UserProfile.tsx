@@ -3,7 +3,7 @@ import styles from "./UserProfile.module.css";
 
 type UserProfileProps = {
   imgUrl: string;
-  nickname: string;
+  nickname?: string;
 };
 
 export default function UserProfile({ imgUrl, nickname }: UserProfileProps) {

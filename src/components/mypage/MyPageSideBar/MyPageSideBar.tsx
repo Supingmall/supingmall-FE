@@ -3,7 +3,7 @@ import UserProfile from "../UserProfile/UserProfile";
 import styles from "./MyPageSideBar.module.css";
 
 // mock 데이터 처리
-const userInfo = {
+export const userInfo = {
   name: "이름",
   gender: "남성",
   email: "2@naver.com",
