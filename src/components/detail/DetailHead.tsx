@@ -12,7 +12,7 @@ const productDetailList = testData.productDetailList
 const productReview = testData.productReview
 
 const DetailHead = () => {
-    const [starPoint, setStarPoint] = useState(testData.scoreAvg)
+
 
 
 
@@ -27,7 +27,7 @@ const DetailHead = () => {
                         <h2>제품이름</h2>
                     </div>
                     <div>
-                        평점 : {starPoint} <StarPoint starPoint={starPoint} setStarPoint={() => { }} />
+                        평점 : {testData.scoreAvg} <StarPoint starPoint={testData.scoreAvg} setStarPoint={() => { }} />
                     </div>
                     <div>
                         가격 : {testData.productPrice}
