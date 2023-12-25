@@ -7,7 +7,6 @@ import "./DetailHead.css"
 import Selector from "./Selector";
 import testData from './test.json';
 import DetailReview from "./DetailReview";
-import shoping from "@/function/shoping";
 
 const productDetailList = testData.productDetailList
 const productReview = testData.productReview
