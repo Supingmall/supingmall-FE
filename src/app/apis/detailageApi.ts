@@ -6,20 +6,31 @@ export const fetchData = async (url: string): Promise<any> => {
         const data = await response.json();
         return data;
     } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error', error);
         throw error;
     }
 };
 
+type shoppingBasketData = {
+    product_option_id: number,
+    user_id: number,
+    amount: number
+}
 
+export const shoppingBasket = async (url: string, body: shoppingBasketData) => {
+    try {
 
-export const fatchData = async (url: string) => {
-    const response = await fetch(url, {
-        headers: "",
-        method: "post",
-        body: {
-        }
-    })
-    const data = response.json()
-    return data
+        const response = await fetch(url, {
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            method: "post",
+            body: JSON.stringify(body)
+        })
+    } catch (error) {
+        console.error('Error', error);
+        throw error;
+    }
+
 }
