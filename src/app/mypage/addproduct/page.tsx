@@ -1,3 +1,4 @@
+import AddProductForm from "@/components/mypage/AddProduct/AddProductForm";
 import styles from "./page.module.css";
 
 export default function AddProduct() {
@@ -6,7 +7,7 @@ export default function AddProduct() {
       <div className={styles.header}>
         <h2>상품 등록</h2>
       </div>
-      <form></form>
+      <AddProductForm />
     </section>
   );
 }
