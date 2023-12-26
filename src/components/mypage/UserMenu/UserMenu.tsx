@@ -8,8 +8,8 @@ type UserMenuProps = {
 export default function UserMenu({ userRole }: UserMenuProps) {
   return (
     <div className={styles.container}>
-      <Link href={"/mypage/myinfo"}>내 정보</Link>
-      {userRole === "ROLE_USER" ? (
+      <Link href={"/mypage"}>내 정보</Link>
+      {/* {userRole === "ROLE_USER" ? (
         <>
           <Link href={"/mypage/purchasehistory"}>구매 내역</Link>
         </>
@@ -18,7 +18,10 @@ export default function UserMenu({ userRole }: UserMenuProps) {
           <Link href={"/mypage/salesstatus"}>판매 현황</Link>
           <Link href={"/mypage/addproduct"}>상품 등록</Link>
         </>
-      )}
+      )} */}
+      <Link href={"/mypage/purchasehistory"}>구매 내역</Link>
+      <Link href={"/mypage/salesstatus"}>판매 현황</Link>
+      <Link href={"/mypage/addproduct"}>상품 등록</Link>
     </div>
   );
 }
