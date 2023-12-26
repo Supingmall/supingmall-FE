@@ -10,11 +10,13 @@ import DetailReview from "./DetailReview";
 const DetailHead = ({ testData }: any) => {
     const option1 = useRef(null)
     const option2 = useRef(null)
+    const option3 = useRef(null)
 
 
     const shoppingBasket = () => {
         console.log(option1.current.value)
         console.log(option2.current.value)
+        console.log(option3.current.value)
 
     }
     if (testData) {
@@ -44,7 +46,7 @@ const DetailHead = ({ testData }: any) => {
                             <Selector ref={option2} item={testData.productDetailList.map(item => item['product_size'])} />
                         </div>
                         {/* 맥스는 재고수량까지 */}
-                        <Counter width={"300px"} height={"40px"} />
+                        <Counter ref={option3} width={"300px"} height={"40px"} />
                         {/* 버튼들 */}
                         <div className='detail-head__buttonbox'>
                             <button>구매하기</button>
