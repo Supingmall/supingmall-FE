@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Counter from "../common/counter/Counter"
 import StarPoint from "../common/starpoint/StarPoint";
 import "./DetailHead.css"
@@ -8,7 +8,15 @@ import Selector from "./Selector";
 import DetailReview from "./DetailReview";
 
 const DetailHead = ({ testData }: any) => {
+    const option1 = useRef(null)
+    const option2 = useRef(null)
 
+
+    const shoppingBasket = () => {
+        console.log(option1.current.value)
+        console.log(option2.current.value)
+
+    }
     if (testData) {
         return (
             <div className='detailpage'>
@@ -28,19 +36,19 @@ const DetailHead = ({ testData }: any) => {
                         </div>
                         <div>
                             색상
-                            <Selector item={testData.productDetailList.map(item => item['color'])} />
+                            <Selector ref={option1} item={testData.productDetailList.map(item => item['color'])} />
                         </div>
                         {/* 사이즈 컴포넌트로 대체 */}
                         <div>
                             사이즈
-                            <Selector item={testData.productDetailList.map(item => item['product_size'])} />
+                            <Selector ref={option2} item={testData.productDetailList.map(item => item['product_size'])} />
                         </div>
                         {/* 맥스는 재고수량까지 */}
                         <Counter width={"300px"} height={"40px"} />
                         {/* 버튼들 */}
                         <div className='detail-head__buttonbox'>
                             <button>구매하기</button>
-                            <button >장바구니</button>
+                            <button onClick={shoppingBasket}>장바구니</button>
                         </div>
                     </div>
                 </div>
