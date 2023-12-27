@@ -14,7 +14,7 @@
   padding: 1rem;
 }
 
-.form label {
+.form > div > label {
   display: flex;
   justify-content: start;
   align-items: center;
@@ -22,7 +22,7 @@
   border-right: 1px solid #ccc;
 }
 
-.form input {
+.form > div > input {
   flex: 1;
   height: 3rem;
   line-height: 3rem;
@@ -33,6 +33,13 @@
   height: 3rem;
 }
 
-.numberInput {
-  width: 10rem;
+.optionBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.addOption {
+  display: flex;
+  gap: 1rem;
 }
