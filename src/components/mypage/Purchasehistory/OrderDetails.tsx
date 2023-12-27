@@ -18,12 +18,15 @@ const OrderDetails = ({ order }: OrderDetailsType) => {
           </div>
           <>
             {item.product_option_response.map((option) => (
-              <p key={option.option_id}>
-                색상: {option.color}, 사이즈: {option.size}, 가격:{" "}
-                {option.price}, 수량: {option.quantity}
-              </p>
+              <>
+                <p key={option.option_id}>
+                  색상: {option.color}, 사이즈: {option.size}, 가격:{" "}
+                  {option.price}, 수량: {option.quantity}
+                </p>
+              </>
             ))}
           </>
+          <button>리뷰등록하기</button>
         </>
       ))}
     </div>
