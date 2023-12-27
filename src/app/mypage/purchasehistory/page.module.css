@@ -1,0 +1,11 @@
+.wrapper {
+  flex: 1;
+}
+.container {
+  margin-top: 6rem;
+}
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
