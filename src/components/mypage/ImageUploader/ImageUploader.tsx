@@ -49,7 +49,6 @@ export function ImageUploader({
           {images?.length || 0} / {max}
         </p>
       </S.ImageLabel>
-
       <S.ImagePreviewWrapper>
         {images.map((image, index) => (
           <S.ImageWrapper key={index}>

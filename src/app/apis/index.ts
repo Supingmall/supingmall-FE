@@ -1,7 +1,7 @@
 import returnFetch from "return-fetch";
 
 export const fetchExtended = returnFetch({
-  baseUrl: "http://localhost:9999",
+  baseUrl: `${process.env.NEXT_PUBLIC_API_URL}/v1/api`,
   headers: { Accept: "application/json" },
   interceptors: {
     request: async (args) => {

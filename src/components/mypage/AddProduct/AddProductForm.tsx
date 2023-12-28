@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 import OptionInput from "../OptionInput/OptionInput";
 import styles from "./AddProductForm.module.css";
 import OptionList from "../OptionList/OptionList";
-import Image from "next/image";
 import { ImageUploader } from "../ImageUploader/ImageUploader";
 
 export interface AddProductOption {
@@ -87,44 +86,3 @@ export default function AddProductForm() {
     </form>
   );
 }
-
-//상품 사진과 옵션은 배열로 받고 사진은 photo_type으로 대표사진과 상품설명사진을 구분합니다.
-// {
-//   "product_name": "목 늘어난 티셔츠",
-//   "category": "상의",
-//   "product_price": 3000,
-//   "finish_at":"2025-12-18",
-
-//    "photo": [
-//   {
-//     "photo_url": "대표상품사진1",
-//     "photo_type": true
-//   },
-//   {
-//     "photo_url": "상품사진1",
-//     "photo_type": false
-//   },
-//   {
-//     "photo_url": "상품사진2",
-//     "photo_type": false
-//   }
-// ],
-
-// "option": [
-//   {
-//     "color": "검정",
-//     "product_size": "XL",
-//     "stock": 50
-//   },
-//   {
-//     "color": "노랑",
-//     "product_size": "L",
-//     "stock": 30
-//   },
-//   {
-//     "color": "파랑",
-//     "product_size": "M",
-//     "stock": 10
-//   }
-// ]
-// }
