@@ -1,9 +1,11 @@
 "use client";
 
-import { MouseEventHandler, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import OptionInput from "../OptionInput/OptionInput";
 import styles from "./AddProductForm.module.css";
 import OptionList from "../OptionList/OptionList";
+import Image from "next/image";
+import { ImageUploader } from "../ImageUploader/ImageUploader";
 
 export interface AddProductOption {
   color: string;
@@ -13,9 +15,11 @@ export interface AddProductOption {
 
 export default function AddProductForm() {
   const [optionList, setOptionList] = useState<AddProductOption[]>([]);
+  const [imgList, setImgList] = useState<File[]>([]);
   const colorRef = useRef<HTMLInputElement>(null);
   const sizeRef = useRef<HTMLInputElement>(null);
   const stockRef = useRef<HTMLInputElement>(null);
+
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     if (
@@ -75,12 +79,10 @@ export default function AddProductForm() {
         </div>
       </div>
       <div>
-        <label>메인 이미지</label>
-        <input type="file" style={{ display: "none" }} />
-      </div>
-      <div>
-        <label>상세 이미지</label>
-        <input type="file" />
+        <label>이미지</label>
+        <div>
+          <ImageUploader images={imgList} setImages={setImgList} max={2} />
+        </div>
       </div>
     </form>
   );
