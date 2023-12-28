@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5rem 5rem 0 5rem;
+  gap: 3rem;
+}
+.item_wrapper {
+  border: 1px solid #333;
+  border-radius: 1rem;
+  width: 80%;
+  padding: 1.5rem;
+}
+.item_info {
+  cursor: pointer;
+}
+.item_infotitle {
+  font-weight: bold;
+}
+.item_infoship {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+.item_shipdetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.item_statusinprogress {
+  color: red;
+  font-weight: bold;
+}
+.item_statuscompleted {
+  color: green;
+  font-weight: bold;
+}
