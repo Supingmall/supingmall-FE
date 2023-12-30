@@ -22,11 +22,11 @@ const StarPoint: React.FC<StarPointProps> = ({ starPoint, setStarPoint }) => {
     }
     return (
         <div>
-            <div className={Style["star_wrap"]}>
-                <div className={Style["star_wrap"]}>
+            <div className={Style.star_wrap}>
+                <div className={Style.star_wrap}>
                     {[1, 2, 3, 4, 5].map((value) => (
                         <div key={value} onClick={starPointHandler} id={value.toString()}>
-                            <img className={Style["star"]} src={roundedStarPoint >= value ? "/detailpage/star_after.svg" : "/detailpage/star_before.svg"} />
+                            <img className={Style.star} src={roundedStarPoint >= value ? "/detailpage/star_after.svg" : "/detailpage/star_before.svg"} />
                         </div>
                     ))}
                 </div>
