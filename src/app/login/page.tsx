@@ -1,19 +1,10 @@
 "use client";
 
-import { useSetRecoilState } from "recoil";
-
 import useInputs from "@/hooks/useInputs";
 import * as S from "./page.styles";
-import { fetchExtended } from "../apis";
-// import { userState } from "@/recoil/userState";
-// import { theme } from "@/styles/theme";
-// import { getItem } from "@/utils/localstorage";
-// import { parseJwt } from "@/utils/parseJwt";
-// TODO-YD: 버튼 활성화유지를 위해 잠시 주석처리
-// import { validateEmail, validatePassword } from '@/utils/validate';
-
-// const KAKAO_AUTH_CLIENTID = import.meta.env.VITE_KAKAO_AUTH_CLIENTID;
-// const KAKAO_REDIRECT_URL = import.meta.env.VITE_KAKAO_REDIRECT_URL;
+import { client } from "../apis";
+import { parseJwt } from "@/utils/parseJwt";
+import { getItem } from "@/utils/localStorage";
 
 export interface userInfoProps {
   email: string;
@@ -21,9 +12,6 @@ export interface userInfoProps {
 }
 
 const LoginPage = () => {
-  // const navigate = useNav();
-  //   const setUser = useSetRecoilState(userState);
-
   const { form, onChange: inputChangeHandler } = useInputs<userInfoProps>({
     email: "",
     password: "",
@@ -33,29 +21,24 @@ const LoginPage = () => {
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetchExtended("/auth/login", {
-      method: "POST",
-      credentials: "include",
-      body: JSON.stringify({
-        email_or_phone_number_or_nick_name: form.email,
-        password: form.password,
-      }),
+    const res = await client.post("/v1/api/auth/login", {
+      email_or_phone_number_or_nick_name: form.email,
+      password: form.password,
     });
 
     console.log(res);
-    //   signIn(form).then((result) => {
-    //     if (result.status === 200) {
-    //       const accessToken = getItem<string>(localStorageKey.accessToken);
-    //       if (accessToken) {
-    //         const userData = parseJwt(accessToken);
-    //         setUser({
-    //           email: userData.sub,
-    //           role: userData.auth,
-    //         });
-    //         navigate("/");
-    //       }
-    //     }
-    //   });
+    if (res.status === 200) {
+      const username = res.data.split("님 환영합니다.")[0].replace(/"/g, "");
+      console.log("username", username);
+      const token = getItem<string>("Token");
+      if (token) {
+        const userInfo = parseJwt(token);
+        const userRole = userInfo.roles.includes("ROLE_ADMIN")
+          ? "ADMIN"
+          : "USER";
+        console.log("userRole", userRole);
+      }
+    }
   };
 
   return (
