@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./theme.css";
 import RecoilRootProvider from "@/components/provider/RecoilRootProvider";
 import Header from "@/components/common/header/Header";
+import Providers from "./Provider";
 
 export const metadata: Metadata = {
   title: "Shopping MAll",
@@ -16,10 +17,12 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        <RecoilRootProvider>
-          <Header />
-          {children}
-        </RecoilRootProvider>
+        <Providers>
+          <RecoilRootProvider>
+            <Header />
+            {children}
+          </RecoilRootProvider>
+        </Providers>
       </body>
     </html>
   );

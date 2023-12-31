@@ -1,48 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import styles from "./SalesTable.module.css";
-import Button from "@/components/common/button/Button";
 import Image from "next/image";
-
-const sales_status = [
-  {
-    product_id: 1,
-    product_photo: "sfsdfsfsfde",
-    product_name: "운동화121321312312dfsdfsdfdfds",
-    product_price: 20000,
-    product_stock: 50,
-    category: "신발",
-    product_finish: "2024-01-15",
-  },
-  {
-    product_id: 2,
-    product_photo: "sfsdfsfsfde",
-    product_name: "운동화",
-    product_price: 20000,
-    product_stock: 50,
-    category: "신발",
-    product_finish: "2024-01-15",
-  },
-  {
-    product_id: 3,
-    product_photo: "sfsdfsfsfde",
-    product_name: "운동화",
-    product_price: 20000,
-    product_stock: 50,
-    category: "신발",
-    product_finish: "2024-01-15",
-  },
-  {
-    product_id: 4,
-    product_photo: "sfsdfsfsfde",
-    product_name: "운동화",
-    product_price: 20000,
-    product_stock: 50,
-    category: "신발",
-    product_finish: "2024-01-15",
-  },
-];
+import { useQuery } from "@tanstack/react-query";
+import { getSellingProduct } from "@/app/apis/client/sales";
 
 export default function SalesTable() {
+  const { data: sales_status } = useQuery({
+    queryKey: ["salesProduct"],
+    queryFn: getSellingProduct,
+  });
   return (
     <div className={styles.table}>
       <div className={`${styles.row} ${styles.header}`}>
@@ -53,16 +21,16 @@ export default function SalesTable() {
         <div className={styles.cell}>판매 종료일</div>
         <div className={styles.cell}>더보기</div>
       </div>
-      {sales_status.map((status) => {
+      {sales_status?.map((status) => {
         return (
-          <div key={status.product_id} className={styles.row}>
+          <div key={status.product_option_id} className={styles.row}>
             <div className={styles.cell}>
               <Link
-                href={`/detail/${status.product_id}`}
+                href={`/detail/${status.product_option_id}`}
                 className={styles.link}
               >
                 <Image
-                  src="/mypage/shoes.jpg"
+                  src={"/mypage/shoes.jpg"}
                   width={100}
                   height={100}
                   alt="이미지"

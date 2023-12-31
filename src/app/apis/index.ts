@@ -17,7 +17,7 @@ client.interceptors.request.use(
 
     if (token) {
       config.headers = config.headers || {};
-      config.headers.ACCESS_TOKEN = token;
+      config.headers.Token = token;
     }
 
     return config;
