@@ -5,6 +5,8 @@ import * as S from "./page.styles";
 import { client } from "../apis";
 import { parseJwt } from "@/utils/parseJwt";
 import { getItem } from "@/utils/localStorage";
+import { useSetRecoilState } from "recoil";
+import { userState } from "@/store/userState";
 
 export interface userInfoProps {
   email: string;
@@ -12,6 +14,7 @@ export interface userInfoProps {
 }
 
 const LoginPage = () => {
+  const setUser = useSetRecoilState(userState);
   const { form, onChange: inputChangeHandler } = useInputs<userInfoProps>({
     email: "",
     password: "",
@@ -29,14 +32,14 @@ const LoginPage = () => {
     console.log(res);
     if (res.status === 200) {
       const username = res.data.split("님 환영합니다.")[0].replace(/"/g, "");
-      console.log("username", username);
       const token = getItem<string>("Token");
       if (token) {
         const userInfo = parseJwt(token);
-        const userRole = userInfo.roles.includes("ROLE_ADMIN")
-          ? "ADMIN"
-          : "USER";
-        console.log("userRole", userRole);
+        const role = userInfo.roles.includes("ROLE_ADMIN") ? "ADMIN" : "USER";
+        setUser({
+          username,
+          role,
+        });
       }
     }
   };
