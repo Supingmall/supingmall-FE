@@ -7,6 +7,7 @@ import { parseJwt } from "@/utils/parseJwt";
 import { getItem } from "@/utils/localStorage";
 import { useSetRecoilState } from "recoil";
 import { userState } from "@/store/userState";
+import { useRouter } from "next/navigation";
 
 export interface userInfoProps {
   email: string;
@@ -14,6 +15,7 @@ export interface userInfoProps {
 }
 
 const LoginPage = () => {
+  const router = useRouter();
   const setUser = useSetRecoilState(userState);
   const { form, onChange: inputChangeHandler } = useInputs<userInfoProps>({
     email: "",
@@ -40,6 +42,7 @@ const LoginPage = () => {
           username,
           role,
         });
+        router.push("/");
       }
     }
   };
