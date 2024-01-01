@@ -5,6 +5,7 @@ import OptionInput from "../OptionInput/OptionInput";
 import styles from "./AddProductForm.module.css";
 import OptionList from "../OptionList/OptionList";
 import { ImageUploader } from "../ImageUploader/ImageUploader";
+import AWS from "aws-sdk";
 
 export interface AddProductOption {
   color: string;
@@ -12,12 +13,42 @@ export interface AddProductOption {
   stock: number;
 }
 
+const region = "ap-northeast-2";
+const bucket = "supingmall-image-uploader";
+const ACCESS_KEY = process.env.NEXT_PUBLIC_AWS_ACCESS_KEY;
+const SECRET_KEY = process.env.NEXT_PUBLIC_AWS_SECRET_KEY;
+
 export default function AddProductForm() {
   const [optionList, setOptionList] = useState<AddProductOption[]>([]);
   const [imgList, setImgList] = useState<File[]>([]);
   const colorRef = useRef<HTMLInputElement>(null);
   const sizeRef = useRef<HTMLInputElement>(null);
   const stockRef = useRef<HTMLInputElement>(null);
+
+  AWS.config.update({
+    region: region,
+    accessKeyId: ACCESS_KEY,
+    secretAccessKey: SECRET_KEY,
+  });
+
+  const s3 = new AWS.S3();
+
+  const uploadFile = async (files: any) => {
+    if (files.length === 0) return;
+
+    const uploadPromise = files.map((file: any) => {
+      const params = {
+        Bucket: bucket,
+        Key: `upload/${Date.now()}.${file.name}`,
+        Body: file,
+      };
+      return s3.upload(params).promise();
+    });
+
+    const results = await Promise.all(uploadPromise);
+    const locations = results.map((result) => result.Location);
+    console.log(locations);
+  };
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -40,6 +71,11 @@ export default function AddProductForm() {
   const deleteOption = (index: number) => {
     const editArr = [...optionList];
     setOptionList(editArr.filter((_, i) => i !== index));
+  };
+
+  const handleImageUpload = (e: React.MouseEvent) => {
+    e.preventDefault();
+    uploadFile(imgList);
   };
 
   return (
@@ -83,6 +119,7 @@ export default function AddProductForm() {
           <ImageUploader images={imgList} setImages={setImgList} max={2} />
         </div>
       </div>
+      <button onClick={handleImageUpload}>이미지 S3 저장</button>
     </form>
   );
 }
