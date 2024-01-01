@@ -1,0 +1,14 @@
+.item_box {
+  margin-top: 3rem;
+}
+.item_titlebox {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 2.2rem;
+  margin: 1.2rem 0;
+}
+.item_img {
+  width: 10rem;
+  height: 10rem;
+}

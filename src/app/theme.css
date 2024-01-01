@@ -13,3 +13,13 @@
 html {
   font-size: var(--font-size);
 }
+
+a {
+  color: black;
+  text-decoration: none;
+  outline: none;
+}
+
+a:hover {
+  cursor: pointer;
+}

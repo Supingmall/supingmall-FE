@@ -1,0 +1,45 @@
+.form {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.form > div {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  border-bottom: 1px solid #ccc;
+  padding: 1rem;
+}
+
+.form > div > label {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 20rem;
+  border-right: 1px solid #ccc;
+}
+
+.form > div > input {
+  flex: 1;
+  height: 3rem;
+  line-height: 3rem;
+}
+
+.form select {
+  width: 10rem;
+  height: 3rem;
+}
+
+.optionBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.addOption {
+  display: flex;
+  gap: 1rem;
+}

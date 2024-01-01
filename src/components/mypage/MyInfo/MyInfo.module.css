@@ -1,0 +1,22 @@
+.wrapper {
+  flex: 1;
+}
+.container {
+  margin: 6rem 0 0 12rem;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  font-weight: bold;
+  margin-bottom: 5rem;
+}
+.profile_box {
+  display: flex;
+  align-items: center;
+}
+.profile_nickname {
+  font-size: 4rem;
+  margin-left: 2rem;
+}
