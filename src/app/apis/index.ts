@@ -31,12 +31,11 @@ client.interceptors.response.use(
     if (token) {
       setItem("Token", token);
     }
-
     return response;
   },
   (error: AxiosError<ErrorResponse>) => {
     const handelSignOut = () => {
-      removeItem("Token");
+      window.location.href = "/logout";
     };
     if (error.response?.status === 406) {
       handelSignOut();
