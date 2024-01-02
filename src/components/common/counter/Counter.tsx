@@ -7,7 +7,7 @@ type CounterProps = {
 };
 
 const Counter = forwardRef<HTMLInputElement, CounterProps>(({ width, height }, ref) => {
-    const [value, setValue] = useState(0)
+    const [value, setValue] = useState(1)
 
     const plusHandler = () => {
         setValue(value + 1);
