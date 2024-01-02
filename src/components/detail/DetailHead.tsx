@@ -6,19 +6,19 @@ import StarPoint from "../common/starpoint/StarPoint";
 import Selector from "./Selector";
 import DetailReview from "./DetailReview";
 import style from "./DetailHead.module.css"
+import SelectRadio from "../common/selectradio/SelectRadio";
 
 const DetailHead = ({ testData }: any) => {
-    const option1 = useRef(null)
-    const option2 = useRef(null)
-    const option3 = useRef(null)
+    const [selectOptionId, setSelectOptionId] = useState<number | null>(null)
+    const option = useRef(null)
+    const option3 = useRef<HTMLInputElement | null>(null)
 
 
     const shoppingBasket = () => {
-        console.log(option1.current.value)
-        console.log(option2.current.value)
-        console.log(option3.current.value)
-
+        console.log(selectOptionId)
+        console.log(option3.current?.value)
     }
+
     if (testData) {
         return (
             <div className={style["detailpage"]}>
@@ -32,22 +32,15 @@ const DetailHead = ({ testData }: any) => {
                         </div>
                         <div>
                             <div className={style["starpoint-container"]}>
-
                                 평점 : {testData.scoreAvg} <StarPoint starPoint={testData.scoreAvg} setStarPoint={() => { }} />
                             </div>
                         </div>
                         <div>
                             가격 : {testData.productPrice}
                         </div>
-                        <div>
-                            색상
-                            <Selector ref={option1} item={testData.productDetailList.map(item => item['color'])} />
-                        </div>
-                        {/* 사이즈 컴포넌트로 대체 */}
-                        <div>
-                            사이즈
-                            <Selector ref={option2} item={testData.productDetailList.map(item => item['product_size'])} />
-                        </div>
+                        {/* 옵션선택 라디오컴포넌트  */}
+                        <SelectRadio optionList={testData.productDetailList} option={setSelectOptionId} />
+
                         {/* 맥스는 재고수량까지 */}
                         <Counter ref={option3} width={"300px"} height={"40px"} />
                         {/* 버튼들 */}
