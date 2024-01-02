@@ -38,7 +38,7 @@ client.interceptors.response.use(
     const handelSignOut = () => {
       removeItem("Token");
     };
-    if (error.response?.status === 403) {
+    if (error.response?.status === 406) {
       handelSignOut();
     }
   }
