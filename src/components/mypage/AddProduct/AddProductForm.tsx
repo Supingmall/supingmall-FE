@@ -7,6 +7,7 @@ import OptionList from "../OptionList/OptionList";
 import { ImageUploader } from "../ImageUploader/ImageUploader";
 import AWS from "aws-sdk";
 import { addProduct } from "@/app/apis/client/sales";
+import { useRouter } from "next/navigation";
 
 export interface AddProductOption {
   color: string;
@@ -20,6 +21,7 @@ const ACCESS_KEY = process.env.NEXT_PUBLIC_AWS_ACCESS_KEY;
 const SECRET_KEY = process.env.NEXT_PUBLIC_AWS_SECRET_KEY;
 
 export default function AddProductForm() {
+  const router = useRouter();
   const productNameRef = useRef<HTMLInputElement>(null);
   const priceRef = useRef<HTMLInputElement>(null);
   const finishRef = useRef<HTMLInputElement>(null);
@@ -112,7 +114,10 @@ export default function AddProductForm() {
       ],
       option: optionList,
     }).then((result) => {
-      console.log(result);
+      if (result.status === 200) {
+        alert("상품이 등록되었습니다.");
+        router.push("/mypage/salesstatus");
+      }
     });
   };
 
