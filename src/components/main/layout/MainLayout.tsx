@@ -26,7 +26,7 @@ const MainLayout = () => {
   // useEffect(()=>{},[]) // 무한스크롤
   return (
     <S.MainLayout>
-      <Button
+      {/* <Button
         desc="굵고 흰색 글씨로"
         size="big"
         bg="#00305B"
@@ -35,14 +35,14 @@ const MainLayout = () => {
         onClick={click}
       />
       <Button desc="초록배경이여랏" size="medium" bg="#9BE400" bold={300} />
-      <Button desc="내용을 넣어볼까?" size="small" color="#FA6C67" />
+      <Button desc="내용을 넣어볼까?" size="small" color="#FA6C67" /> */}
 
       {/* <Input placeholder="비밀번호를 입력해주세요." size="big" /> */}
-      <Input size="big" placeHolder="big" />
+      {/* <Input size="big" placeHolder="big" />
       <Input size="medium" placeHolder="medium" />
-      <Input size="small" placeHolder="small" />
+      <Input size="small" placeHolder="small" /> */}
 
-      <S.HeaderWrap>헤더입니다.</S.HeaderWrap>
+      {/* <S.HeaderWrap>헤더입니다.</S.HeaderWrap> */}
       <NaviBar />
       <S.ItemContainerWrap>
         <CategoryTitle />
