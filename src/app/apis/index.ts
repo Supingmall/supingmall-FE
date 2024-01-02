@@ -28,8 +28,9 @@ client.interceptors.response.use(
   (response: AxiosResponse): AxiosResponse => {
     const headers = response.headers;
     const token = headers["token"];
-
-    setItem("Token", token);
+    if (token) {
+      setItem("Token", token);
+    }
 
     return response;
   },
