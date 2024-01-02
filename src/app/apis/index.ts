@@ -28,16 +28,16 @@ client.interceptors.response.use(
   (response: AxiosResponse): AxiosResponse => {
     const headers = response.headers;
     const token = headers["token"];
-
-    setItem("Token", token);
-
+    if (token) {
+      setItem("Token", token);
+    }
     return response;
   },
   (error: AxiosError<ErrorResponse>) => {
     const handelSignOut = () => {
-      removeItem("Token");
+      window.location.href = "/logout";
     };
-    if (error.response?.status === 403) {
+    if (error.response?.status === 406) {
       handelSignOut();
     }
   }
