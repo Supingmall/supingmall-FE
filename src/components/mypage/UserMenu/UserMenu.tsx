@@ -22,6 +22,7 @@ export default function UserMenu({ userRole }: UserMenuProps) {
       <Link href={"/mypage/purchasehistory"}>구매 내역</Link>
       <Link href={"/mypage/salesstatus"}>판매 현황</Link>
       <Link href={"/mypage/addproduct"}>상품 등록</Link>
+      <Link href={"/mypage/reviewlist"}>리뷰 목록</Link>
     </div>
   );
 }

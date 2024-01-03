@@ -1,19 +1,84 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
+  "item": {
+    "productId": 6,
+    "productName": "유행지난 후드티",
+    "productPrice": 500,
+    "category": "상의",
+    "productStatus": "판매중",
+    "createAt": "2023년 12월 19일 - 19시 38분",
+    "finishAt": "2024년 12월 18일 - 00시 00분",
+    "scoreAvg": 3.3,
+    "productPhoto": [
+      {
+        "product_photo_id": 1,
+        "photo_url": "대표상품사진1",
+        "photo_type": true
+      },
+      {
+        "product_photo_id": 2,
+        "photo_url": "상품사진1",
+        "photo_type": false
+      },
+      {
+        "product_photo_id": 3,
+        "photo_url": "상품사진2",
+        "photo_type": false
+      }
+    ],
+    "productDetailList": [
+      {
+        "color": "검정",
+        "product_size": "L",
+        "stock": 50
+      },
+      {
+        "color": "흰색",
+        "product_size": "M",
+        "stock": 30
+      },
+      {
+        "color": "파랑",
+        "product_size": "XL",
+        "stock": 10
+      }
+    ],
+    "productReview": [
+      {
+        "review_id": 1,
+        "user_id": 4,
+        "product_id": 6,
+        "nick_name": "닉넴",
+        "review_contents": "좋아요~~~~",
+        "create_at": "2023-12-20T19:28:03",
+        "score": 3
+      },
+      {
+        "review_id": 2,
+        "user_id": 5,
+        "product_id": 6,
+        "nick_name": "닉네임5",
+        "review_contents": "후드티",
+        "create_at": "2023-12-20T19:28:03",
+        "score": 5
+      },
+      {
+        "review_id": 3,
+        "user_id": 6,
+        "product_id": 6,
+        "nick_name": "운영자",
+        "review_contents": "후드후드티",
+        "create_at": "2023-12-20T19:28:03",
+        "score": 1
+      },
+      {
+        "review_id": 4,
+        "user_id": 8,
+        "product_id": 6,
+        "nick_name": "이브라히모비치",
+        "review_contents": "후드후드후드티",
+        "create_at": "2023-12-20T19:28:03",
+        "score": 2
+      }
+    ]
   }
 }
