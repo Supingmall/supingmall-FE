@@ -4,6 +4,9 @@ import useInputs from "@/hooks/useInputs";
 import * as S from "./page.styles";
 import { joinUser } from "../apis/client/user";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import axios from "axios";
+import { client } from "../apis";
 
 export interface JoinForm {
   email: string;
@@ -17,6 +20,8 @@ export interface JoinForm {
 }
 
 export default function Join() {
+  const [isError, setIsError] = useState<boolean>(false);
+  const [errorMsg, setErrorMsg] = useState<string>("");
   const router = useRouter();
   const { form, onChange: inputChangeHandler } = useInputs<JoinForm>({
     email: "",
@@ -29,12 +34,16 @@ export default function Join() {
     gender: "남성",
   });
 
-  const submitHandler = async (e: React.FormEvent) => {
+  const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
-    const res = await joinUser(form);
-    if (res.status === 200) {
-      router.push("/login");
-    }
+    joinUser(form).then((res: any) => {
+      if (res.status === 200) {
+        router.push("/login");
+      } else if (res.response.status === 409 || 422) {
+        setIsError(true);
+        setErrorMsg(res.response.data.message);
+      }
+    });
   };
 
   return (
@@ -131,6 +140,7 @@ export default function Join() {
               placeholder="주소를 입력해주세요."
             />
           </div>
+          {isError && <span style={{ color: "red" }}>{errorMsg}</span>}
           <button>회원가입</button>
         </S.SignUpForm>
       </S.SignUpBox>

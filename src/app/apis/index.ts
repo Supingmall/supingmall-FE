@@ -40,6 +40,7 @@ client.interceptors.response.use(
     if (error.response?.status === 406) {
       handelSignOut();
     }
+    return error;
   }
 );
 
