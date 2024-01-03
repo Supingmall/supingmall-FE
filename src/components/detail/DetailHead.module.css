@@ -1,6 +1,7 @@
 .detailpage {
     width: 1000px;
     margin: auto;
+    font-size: 1.6rem;
 }
 
 /* 상세페이지 헤더디자인 */
@@ -23,11 +24,14 @@
 
 .detail-head__description_area {
     width: 100%;
-
     margin-left: 2rem;
 }
 
-
+/* 평점 */
+.starpoint-container {
+    display: flex;
+    align-items: center;
+}
 
 
 
