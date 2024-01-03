@@ -5,6 +5,7 @@ const nextConfig = {
       "blog.kakaocdn.net",
       "cdn.pixabay.com",
       "supingmall-image-uploader.s3.ap-northeast-2.amazonaws.com",
+      "image.msscdn.net",
     ],
   },
 };

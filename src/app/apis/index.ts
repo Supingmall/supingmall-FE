@@ -35,6 +35,8 @@ client.interceptors.response.use(
   },
   (error: AxiosError<ErrorResponse>) => {
     const handelSignOut = () => {
+      removeItem("Token");
+      removeItem("USERINFO");
       window.location.href = "/logout";
     };
     if (error.response?.status === 406) {
