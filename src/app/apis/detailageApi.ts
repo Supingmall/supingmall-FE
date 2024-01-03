@@ -12,20 +12,22 @@ export const fetchData = async (url: string): Promise<any> => {
 };
 
 type shoppingBasketData = {
-    product_option_id: number,
-    user_id: number,
-    amount: number
+    product_option_id: number | null,
+    addAmount: number
 }
 
-export const shoppingBasket = async (url: string, body: shoppingBasketData) => {
+export const shoppingBasketAPI = async (url: string, body: shoppingBasketData, token: string) => {
     try {
 
         const response = await fetch(url, {
             headers: {
                 Accept: "application/json",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                Token: token,
+
+
             },
-            method: "post",
+            method: "POST",
             body: JSON.stringify(body)
         })
     } catch (error) {

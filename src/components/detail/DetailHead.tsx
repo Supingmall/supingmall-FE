@@ -7,16 +7,56 @@ import Selector from "./Selector";
 import DetailReview from "./DetailReview";
 import style from "./DetailHead.module.css"
 import SelectRadio from "../common/selectradio/SelectRadio";
+import { shoppingBasketAPI } from "@/app/apis/detailageApi";
+import { url } from "inspector";
+import axios from "axios";
 
 const DetailHead = ({ testData }: any) => {
+
     const [selectOptionId, setSelectOptionId] = useState<number | null>(null)
-    const option = useRef(null)
-    const option3 = useRef<HTMLInputElement | null>(null)
+    const amount = useRef<HTMLInputElement | null>(null)
 
 
-    const shoppingBasket = () => {
-        console.log(selectOptionId)
-        console.log(option3.current?.value)
+    // const shoppingBasket = () => {
+    //     try {
+
+    //         console.log("장바구니클릭")
+    //         const cleanToken = (token: string | null) => {
+    //             return token ? token.replace(/["']/g, '') : null
+    //         }
+    //         const token = cleanToken(window.localStorage.getItem("Token"))
+
+    //         const body = {
+    //             "product_option_id": selectOptionId,
+    //             "addAmount": Number(amount.current?.value),
+    //         }
+    //         const url = `http://ec2-52-79-235-118.ap-northeast-2.compute.amazonaws.com:8080//v1/api/cart/add-cart?productOptionId=${selectOptionId}&addAmount=${Number(amount.current?.value)}`
+    //         shoppingBasketAPI(url, body, token)
+    //     } catch {
+    //     }
+    // }
+    const shoppingBasket = async () => {
+        try {
+            const cleanToken = (token: string | null) => {
+                return token ? token.replace(/["']/g, '') : null;
+            }
+            const token = cleanToken(window.localStorage.getItem("Token"));
+            const body = {
+                "product_option_id": selectOptionId,
+                "add_amount": Number(amount.current?.value),
+            }
+            const url = `http://ec2-52-79-235-118.ap-northeast-2.compute.amazonaws.com:8080/v1/api/cart`;
+            const response = await axios.post(url, body, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Token': token
+                }
+            });
+            console.log(response);
+            console.log(response.data);
+        } catch (error) {
+            console.error('Error', error);
+        }
     }
 
     if (testData) {
@@ -24,11 +64,12 @@ const DetailHead = ({ testData }: any) => {
             <div className={style["detailpage"]}>
                 <div className={style['detail-head__container']}>
                     <div className={style['detail-head__imagebox']}>
-                        <img className={style['detail-head__image']} src="/detailpage/testimage.jpg" alt="product_img" />
+                        <img className={style['detail-head__image']} src={testData.productPhoto
+                        [0].photo_url} alt="product_img" />
                     </div>
                     <div className={style['detail-head__description_area']}>
                         <div >
-                            <h2>제품이름</h2>
+                            <h2>{testData.productName}</h2>
                         </div>
                         <div>
                             <div className={style["starpoint-container"]}>
@@ -42,10 +83,9 @@ const DetailHead = ({ testData }: any) => {
                         <SelectRadio optionList={testData.productDetailList} option={setSelectOptionId} />
 
                         {/* 맥스는 재고수량까지 */}
-                        <Counter ref={option3} width={"300px"} height={"40px"} />
+                        <Counter ref={amount} width={"300px"} height={"40px"} />
                         {/* 버튼들 */}
                         <div className={style['detail-head__buttonbox']}>
-                            <button>구매하기</button>
                             <button onClick={shoppingBasket}>장바구니</button>
                         </div>
                     </div>
@@ -53,7 +93,8 @@ const DetailHead = ({ testData }: any) => {
                 <DetailReview reviewlist={testData.productReview} />
                 {/* 제품설명 상세이미지 */}
                 <div className={style['detail-body__deatil_image_container']}>
-                    <img className={style['detail-body__deatil_image']} src="/detailpage/detailimage.jpeg" alt="" />
+                    <img className={style['detail-body__deatil_image']} src={testData.productPhoto
+                    [1].photo_url} alt="" />
                 </div>
             </div >
         );

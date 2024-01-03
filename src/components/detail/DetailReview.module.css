@@ -2,6 +2,7 @@
     border-top: 1px solid gray;
     padding-top: 1rem;
     margin-top: 0.8rem;
+    gap: 4px;
 }
 
 .nickname {
