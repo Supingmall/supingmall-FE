@@ -6,6 +6,7 @@ export const SignInContainer = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.6rem;
 `;
 
 export const SignInBox = styled.div`
@@ -15,7 +16,7 @@ export const SignInBox = styled.div`
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
-  padding: 5rem 3rem;
+  padding: 2.5rem 3rem;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   color: #c79be2;
 `;
@@ -30,8 +31,8 @@ export const SignInForm = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin-bottom: 80px;
+  gap: 1rem;
+  color: black;
   > div {
     display: flex;
     flex-direction: column;

@@ -71,7 +71,7 @@ export const JoinButton = styled.button`
   cursor: pointer;
 `;
 
-export const errBox = styled.div`
+export const ErrBox = styled.div`
   height: 2rem;
   color: red;
 `;

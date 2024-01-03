@@ -9,6 +9,7 @@ import { useSetRecoilState } from "recoil";
 import { userState } from "@/store/userState";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { JoinInput, ErrBox, JoinButton } from "../join/page.styles";
 
 export interface userInfoProps {
   email: string;
@@ -29,6 +30,11 @@ const LoginPage = () => {
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!form.email || !form.password) {
+      setIsError(true);
+      setErrorMsg("모든 정보를 입력해주세요.");
+      return;
+    }
     const res: any = await client.post("/v1/api/auth/login", {
       email_or_phone_number_or_nick_name: form.email,
       password: form.password,
@@ -59,7 +65,7 @@ const LoginPage = () => {
           <S.SignInForm onSubmit={submitHandler}>
             <div>
               <label htmlFor="email">ID</label>
-              <input
+              <JoinInput
                 onChange={inputChangeHandler}
                 value={form.email}
                 name="email"
@@ -70,7 +76,7 @@ const LoginPage = () => {
             </div>
             <div>
               <label htmlFor="password">PW</label>
-              <input
+              <JoinInput
                 onChange={inputChangeHandler}
                 value={form.password}
                 name="password"
@@ -79,8 +85,8 @@ const LoginPage = () => {
                 placeholder="패스워드를 입력해주세요."
               />
             </div>
-            {isError ? <span>{errorMsg}</span> : null}
-            <button>로그인</button>
+            <ErrBox>{isError && <>{errorMsg}</>}</ErrBox>
+            <JoinButton>로그인</JoinButton>
           </S.SignInForm>
         </S.SignInBox>
       </S.SignInContainer>

@@ -156,7 +156,7 @@ export default function Join() {
               placeholder="주소를 입력해주세요."
             />
           </div>
-          <S.errBox>{isError && <>{errorMsg}</>}</S.errBox>
+          <S.ErrBox>{isError && <>{errorMsg}</>}</S.ErrBox>
           <S.JoinButton>회원가입</S.JoinButton>
         </S.SignUpForm>
       </S.SignUpBox>
