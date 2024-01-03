@@ -1,5 +1,7 @@
 // apiModule.ts
 
+import axios from "axios";
+
 export const fetchData = async (url: string): Promise<any> => {
     try {
         const response = await fetch(url);
@@ -13,23 +15,19 @@ export const fetchData = async (url: string): Promise<any> => {
 
 type shoppingBasketData = {
     product_option_id: number | null,
-    addAmount: number
+    add_amount: number
 }
 
 export const shoppingBasketAPI = async (url: string, body: shoppingBasketData, token: string) => {
     try {
 
-        const response = await fetch(url, {
+        const responese = await axios.post(url, body, {
             headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-                Token: token,
-
-
-            },
-            method: "POST",
-            body: JSON.stringify(body)
+                'Content-Type': 'application/json',
+                'Token': token
+            }
         })
+        return responese
     } catch (error) {
         console.error('Error', error);
         throw error;

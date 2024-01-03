@@ -3,6 +3,16 @@ type reviewData = {
     score: number
 }
 
+// /v1/api/review/list
+export const getRivewAPI = async (url: string, token: string) => {
+    const response = await fetch(url, {
+        headers: {
+            "token": token
+        }
+    })
+    const data = await response.json()
+    return data
+}
 
 // /v1/api/review/{product_id}/createReview
 export const createreview = async (url: string, body: reviewData) => {

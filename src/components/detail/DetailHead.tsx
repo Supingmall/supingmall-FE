@@ -12,29 +12,9 @@ import { url } from "inspector";
 import axios from "axios";
 
 const DetailHead = ({ testData }: any) => {
-
+    console.log(testData)
     const [selectOptionId, setSelectOptionId] = useState<number | null>(null)
     const amount = useRef<HTMLInputElement | null>(null)
-
-
-    // const shoppingBasket = () => {
-    //     try {
-
-    //         console.log("장바구니클릭")
-    //         const cleanToken = (token: string | null) => {
-    //             return token ? token.replace(/["']/g, '') : null
-    //         }
-    //         const token = cleanToken(window.localStorage.getItem("Token"))
-
-    //         const body = {
-    //             "product_option_id": selectOptionId,
-    //             "addAmount": Number(amount.current?.value),
-    //         }
-    //         const url = `http://ec2-52-79-235-118.ap-northeast-2.compute.amazonaws.com:8080//v1/api/cart/add-cart?productOptionId=${selectOptionId}&addAmount=${Number(amount.current?.value)}`
-    //         shoppingBasketAPI(url, body, token)
-    //     } catch {
-    //     }
-    // }
     const shoppingBasket = async () => {
         try {
             const cleanToken = (token: string | null) => {
@@ -45,13 +25,8 @@ const DetailHead = ({ testData }: any) => {
                 "product_option_id": selectOptionId,
                 "add_amount": Number(amount.current?.value),
             }
-            const url = `http://ec2-52-79-235-118.ap-northeast-2.compute.amazonaws.com:8080/v1/api/cart`;
-            const response = await axios.post(url, body, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Token': token
-                }
-            });
+            const url = `http://ec2-52-79-235-118.ap-northeast-2.compute.amazonaws.com:8080/v1/api/cart`
+            const response = await shoppingBasketAPI(url, body, token)
             console.log(response);
             console.log(response.data);
         } catch (error) {
