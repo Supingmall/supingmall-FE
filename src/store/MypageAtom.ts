@@ -26,6 +26,41 @@ export interface Order {
   order_total_price: number;
 }
 
+interface UserData {
+  name: string;
+  gender: string;
+  email: string;
+  nick_name: string;
+  password: string;
+  address?: string;
+  created_at?: string;
+  image_url?: string;
+  new_password?: string | null;
+  new_password_confirm?: string | null;
+  phone_number?: string;
+  user_roles?: string[];
+}
+
+//내 정보
+export const mydataAtom = atom<UserData>({
+  key: "mydataAtom",
+  default: {
+    name: "",
+    gender: "",
+    email: "",
+    nick_name: "",
+    password: "",
+    address: "",
+    created_at: "",
+    image_url: "",
+    new_password: null,
+    new_password_confirm: null,
+    phone_number: "",
+    user_roles: [],
+  },
+});
+
+//내 구매내역
 export const orderitemAtom = atom<Order[]>({
   key: "orderitemAtom",
   default: [
