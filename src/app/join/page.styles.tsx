@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const SignInContainer = styled.main`
+export const SignUpContainer = styled.main`
   width: 100%;
   height: calc(100vh - 8rem);
   display: flex;
@@ -8,7 +8,7 @@ export const SignInContainer = styled.main`
   align-items: center;
 `;
 
-export const SignInBox = styled.div`
+export const SignUpBox = styled.div`
   width: 400px;
   background-color: white;
   display: flex;
@@ -20,13 +20,13 @@ export const SignInBox = styled.div`
   color: #c79be2;
 `;
 
-export const SignInLogo = styled.h1`
+export const SignUpLogo = styled.h1`
   margin-bottom: 50px;
   font-weight: 900;
   font-size: 3rem;
 `;
 
-export const SignInForm = styled.form`
+export const SignUpForm = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
