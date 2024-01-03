@@ -1,0 +1,11 @@
+.star_wrap {
+    display: flex;
+}
+
+
+.star {
+    margin-right: 0.3rem;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+}
