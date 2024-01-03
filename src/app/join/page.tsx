@@ -2,8 +2,10 @@
 
 import useInputs from "@/hooks/useInputs";
 import * as S from "./page.styles";
+import { joinUser } from "../apis/client/user";
+import { useRouter } from "next/navigation";
 
-interface JoinForm {
+export interface JoinForm {
   email: string;
   name: string;
   phone_number: string;
@@ -15,6 +17,7 @@ interface JoinForm {
 }
 
 export default function Join() {
+  const router = useRouter();
   const { form, onChange: inputChangeHandler } = useInputs<JoinForm>({
     email: "",
     name: "",
@@ -25,11 +28,20 @@ export default function Join() {
     image_url: null,
     gender: "남성",
   });
+
+  const submitHandler = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const res = await joinUser(form);
+    if (res.status === 200) {
+      router.push("/login");
+    }
+  };
+
   return (
     <S.SignUpContainer>
       <S.SignUpBox>
         <S.SignUpLogo>회원가입</S.SignUpLogo>
-        <S.SignUpForm>
+        <S.SignUpForm onSubmit={submitHandler}>
           <div>
             <label htmlFor="email">아이디</label>
             <input
@@ -54,7 +66,6 @@ export default function Join() {
           </div>
           <div>
             <label htmlFor="gender">성별</label>
-            {/* 성별 */}
             <div>
               <input
                 type="radio"
