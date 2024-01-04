@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  margin-top: 10rem;
+  font-size: 5rem;
+}
+.cartinfo {
+  display: flex;
+  width: 100%;
+}
