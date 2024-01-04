@@ -31,7 +31,7 @@ const LoginPage = () => {
       password: form.password,
     });
 
-    console.log(res);
+    // console.log(res);
     if (res.status === 200) {
       const username = res.data.split("님 환영합니다.")[0].replace(/"/g, "");
       const token = getItem<string>("Token");

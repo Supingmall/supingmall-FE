@@ -1,8 +1,8 @@
-import { fetchExtended } from "../apis";
+// import { fetchExtended } from "../apis";
 
 const page = async () => {
-  const response = await fetchExtended("/profile");
-  console.log(response);
+  // const response = await fetchExtended("/profile");
+  // console.log(response);
   return <div></div>;
 };
 

@@ -2,27 +2,16 @@
 import Image from "next/image";
 import "./item.css";
 import Link from "next/link";
+import { Product } from "../layout/type";
 
-interface ItemProps {
-  product_id: number;
-  product_name: string;
-  product_price: number;
-  product_photo: string;
-  category: string;
-  product_status: string;
-  score_avg: number;
-  review_count: number;
-  create_at: string;
-}
-
-export default function Item({ item }: { item: ItemProps }) {
+export default function Item({ item }: { item: Product }) {
   return (
     <div className="item">
       <Link href={`/detail/${item.product_id}`}>
         <div className="item-img-box">
           <Image
             className="item-img"
-            src={item.product_photo}
+            src={item.photo_url}
             alt={item.product_name}
             layout="fill"
             objectFit="cover"
