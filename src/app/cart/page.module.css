@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+  width: 100vw;
 }
 .title {
   display: flex;
@@ -10,4 +11,5 @@
 }
 .cartinfo {
   display: flex;
+  width: 100%;
 }
