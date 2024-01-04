@@ -36,6 +36,18 @@ export default function Join() {
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
+    if (
+      !form.email ||
+      !form.name ||
+      !form.password ||
+      !form.phone_number ||
+      !form.nick_name ||
+      !form.address
+    ) {
+      setIsError(true);
+      setErrorMsg("모든 정보를 입력해주세요.");
+      return;
+    }
     joinUser(form).then((res: any) => {
       if (res.status === 200) {
         router.push("/login");
@@ -53,7 +65,7 @@ export default function Join() {
         <S.SignUpForm onSubmit={submitHandler}>
           <div>
             <label htmlFor="email">아이디</label>
-            <input
+            <S.JoinInput
               onChange={inputChangeHandler}
               value={form.email}
               name="email"
@@ -64,7 +76,7 @@ export default function Join() {
           </div>
           <div>
             <label htmlFor="password">비밀번호</label>
-            <input
+            <S.JoinInput
               onChange={inputChangeHandler}
               value={form.password}
               name="password"
@@ -75,30 +87,34 @@ export default function Join() {
           </div>
           <div>
             <label htmlFor="gender">성별</label>
-            <div>
-              <input
-                type="radio"
-                id="남성"
-                name="gender"
-                value="남성"
-                onChange={inputChangeHandler}
-                checked={form.gender === "남성"}
-              />
-              <label htmlFor="남성">남성</label>
-              <input
-                type="radio"
-                id="여성"
-                name="gender"
-                value="여성"
-                onChange={inputChangeHandler}
-                checked={form.gender === "여성"}
-              />
-              <label htmlFor="여성">여성</label>
-            </div>
+            <S.JoinRadioGroup>
+              <div>
+                <input
+                  type="radio"
+                  id="남성"
+                  name="gender"
+                  value="남성"
+                  onChange={inputChangeHandler}
+                  checked={form.gender === "남성"}
+                />
+                <label htmlFor="남성">남성</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="여성"
+                  name="gender"
+                  value="여성"
+                  onChange={inputChangeHandler}
+                  checked={form.gender === "여성"}
+                />
+                <label htmlFor="여성">여성</label>
+              </div>
+            </S.JoinRadioGroup>
           </div>
           <div>
             <label htmlFor="name">이름</label>
-            <input
+            <S.JoinInput
               onChange={inputChangeHandler}
               value={form.name}
               name="name"
@@ -109,7 +125,7 @@ export default function Join() {
           </div>
           <div>
             <label htmlFor="nick_name">닉네임</label>
-            <input
+            <S.JoinInput
               onChange={inputChangeHandler}
               value={form.nick_name}
               name="nick_name"
@@ -120,7 +136,7 @@ export default function Join() {
           </div>
           <div>
             <label htmlFor="phone_number">휴대전화번호</label>
-            <input
+            <S.JoinInput
               onChange={inputChangeHandler}
               value={form.phone_number}
               name="phone_number"
@@ -131,7 +147,7 @@ export default function Join() {
           </div>
           <div>
             <label htmlFor="address">주소</label>
-            <input
+            <S.JoinInput
               onChange={inputChangeHandler}
               value={form.address}
               name="address"
@@ -140,8 +156,8 @@ export default function Join() {
               placeholder="주소를 입력해주세요."
             />
           </div>
-          {isError && <span style={{ color: "red" }}>{errorMsg}</span>}
-          <button>회원가입</button>
+          <S.ErrBox>{isError && <>{errorMsg}</>}</S.ErrBox>
+          <S.JoinButton>회원가입</S.JoinButton>
         </S.SignUpForm>
       </S.SignUpBox>
     </S.SignUpContainer>
