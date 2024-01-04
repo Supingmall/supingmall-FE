@@ -38,6 +38,7 @@ export default function Header() {
         </S.UsernameText>
         <S.LinkButtonWhite href={"/mypage"}>마이페이지</S.LinkButtonWhite>
         <S.LinkButton href={"/logout"}>로그아웃</S.LinkButton>
+        <S.Cartbutton href={"/cart"}>장바구니</S.Cartbutton>
       </>
     );
   const setSsrCompleted = useSsrComplectedState();

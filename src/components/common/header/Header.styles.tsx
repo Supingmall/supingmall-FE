@@ -82,3 +82,14 @@ export const LinkButtonWhite = styled(Link)`
   color: #c79be2;
   border: 1px solid #c79be2;
 `;
+
+export const Cartbutton = styled(Link)`
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  color: #c79be2;
+  border: 1px solid #c79be2;
+`;
