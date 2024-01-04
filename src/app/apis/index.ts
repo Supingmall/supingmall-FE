@@ -10,7 +10,6 @@ const BASE_URL: string | undefined = process.env.NEXT_PUBLIC_API_URL;
 export const client = axios.create({
   baseURL: BASE_URL,
 });
-
 client.interceptors.request.use(
   (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
     const token = getItem<string>("Token");
