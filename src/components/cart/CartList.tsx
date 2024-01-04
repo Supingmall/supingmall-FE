@@ -20,9 +20,10 @@ const CartList = () => {
 
   return (
     <div className={styles.wrapper}>
-      {cartList?.product_response_list.map((item) => (
-        <CartItem key={item.product_id} item={item} />
-      ))}
+      {cartList &&
+        cartList?.product_response_list.map((item) => (
+          <CartItem key={item.product_id} item={item} />
+        ))}
     </div>
   );
 };

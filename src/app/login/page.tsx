@@ -35,10 +35,12 @@ const LoginPage = () => {
       setErrorMsg("모든 정보를 입력해주세요.");
       return;
     }
+
     const res: any = await client.post("/v1/api/auth/login", {
       email_or_phone_number_or_nick_name: form.email,
       password: form.password,
     });
+
     if (res.status === 200) {
       const username = res.data.split("님 환영합니다.")[0].replace(/"/g, "");
       const token = getItem<string>("Token");

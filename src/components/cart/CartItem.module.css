@@ -7,13 +7,14 @@
 }
 .cart_title {
   font-size: 2rem;
+  margin-bottom: 1.2rem;
 }
 .cart_itembox {
   display: flex;
 }
 .cart_img {
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
 }
 .cart_total_price {
   display: flex;
@@ -21,4 +22,8 @@
   font-size: 1.5rem;
   font-weight: bold;
   margin: 10px 10px 0 0;
+}
+.option {
+  margin: 1rem 0 0 5rem;
+  font-size: 1.4rem;
 }
