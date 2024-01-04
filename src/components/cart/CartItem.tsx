@@ -7,7 +7,6 @@ interface CartItemProps {
 }
 
 const CartItem: React.FC<CartItemProps> = ({ item }) => {
-  // 옵션별 정보를 렌더링합니다.
   const renderOptions = (options: CartProductOption[]) => {
     return options.map((option) => (
       <div key={option.option_id} className={styles.option}>
@@ -38,7 +37,7 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
         </div>
       </div>
       <div className={styles.cart_total_price}>
-        <p>총 가격: {item.product_total_price}</p>
+        <p>총 가격: {item.product_total_price} 원</p>
       </div>
     </div>
   );
