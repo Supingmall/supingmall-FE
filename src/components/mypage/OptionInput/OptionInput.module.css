@@ -4,3 +4,12 @@
   align-items: center;
   gap: 1rem;
 }
+
+.container > input {
+  height: 3rem;
+  line-height: 3rem;
+  padding: 1rem;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  border: 1px solid #c79be2;
+}

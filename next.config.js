@@ -6,6 +6,7 @@ const nextConfig = {
       "cdn.pixabay.com",
       "supingmall-image-uploader.s3.ap-northeast-2.amazonaws.com",
       "static.thenounproject.com",
+      "image.msscdn.net",
     ],
   },
 };

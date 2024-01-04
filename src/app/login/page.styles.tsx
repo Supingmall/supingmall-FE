@@ -2,12 +2,11 @@ import styled from "@emotion/styled";
 
 export const SignInContainer = styled.main`
   width: 100%;
-  /* height: calc(100vh - 150px); */
-  padding-top: 40px;
+  height: calc(100vh - 8rem);
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
+  font-size: 1.6rem;
 `;
 
 export const SignInBox = styled.div`
@@ -17,7 +16,7 @@ export const SignInBox = styled.div`
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
-  padding: 5rem 3rem;
+  padding: 2.5rem 3rem;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   color: #c79be2;
 `;
@@ -32,34 +31,11 @@ export const SignInForm = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin-bottom: 80px;
+  gap: 1rem;
+  color: black;
   > div {
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
-`;
-
-export const FontBox = styled.p``;
-
-export const KakaoFontBox = styled(FontBox)`
-  width: 130px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-export const OrBox = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 35px;
-`;
-
-export const LineDiv = styled.div`
-  width: 147px;
-  height: 1px;
-  background: #9ba5b7;
 `;
