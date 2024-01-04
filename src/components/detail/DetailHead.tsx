@@ -11,7 +11,9 @@ import { shoppingBasketAPI } from "@/app/apis/detailageApi";
 import { url } from "inspector";
 import axios from "axios";
 
+
 const DetailHead = ({ testData }: any) => {
+
   console.log(testData);
   const [selectOptionId, setSelectOptionId] = useState<number | null>(null);
   const amount = useRef<HTMLInputElement | null>(null);
@@ -31,39 +33,35 @@ const DetailHead = ({ testData }: any) => {
       console.log(response.data);
     } catch (error) {
       console.error("Error", error);
+
     }
   };
 
-  if (testData) {
-    return (
-      <div className={style["detailpage"]}>
-        <div className={style["detail-head__container"]}>
-          <div className={style["detail-head__imagebox"]}>
-            <img
-              className={style["detail-head__image"]}
-              src={testData.productPhoto[0].photo_url}
-              alt="product_img"
-            />
-          </div>
-          <div className={style["detail-head__description_area"]}>
-            <div>
-              <h2>{testData.productName}</h2>
-            </div>
-            <div>
-              <div className={style["starpoint-container"]}>
-                평점 : {testData.scoreAvg}{" "}
-                <StarPoint
-                  starPoint={testData.scoreAvg}
-                  setStarPoint={() => {}}
-                />
-              </div>
-            </div>
-            <div>가격 : {testData.productPrice}</div>
-            {/* 옵션선택 라디오컴포넌트  */}
-            <SelectRadio
-              optionList={testData.productDetailList}
-              option={setSelectOptionId}
-            />
+
+    if (testData) {
+        return (
+            <div className={style["detailpage"]}>
+                <a href="/"><div>뒤로가기</div></a>
+
+                <div className={style['detail-head__container']}>
+                    <div className={style['detail-head__imagebox']}>
+                        <img className={style['detail-head__image']} src={testData.productPhoto
+                        [0].photo_url} alt="product_img" />
+                    </div>
+                    <div className={style['detail-head__description_area']}>
+                        <div >
+                            <h2>{testData.productName}</h2>
+                        </div>
+                        <div>
+                            <div className={style["starpoint-container"]}>
+                                평점 : {testData.scoreAvg} <StarPoint starPoint={testData.scoreAvg} setStarPoint={() => { }} />
+                            </div>
+                        </div>
+                        <div>
+                            가격 : {testData.productPrice}
+                        </div>
+                        {/* 옵션선택 라디오컴포넌트  */}
+                        <SelectRadio optionList={testData.productDetailList} option={setSelectOptionId} />
 
             {/* 맥스는 재고수량까지 */}
             <Counter ref={amount} width={"300px"} height={"40px"} />

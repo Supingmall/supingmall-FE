@@ -15,8 +15,8 @@ const OrderDetails = ({ order }: OrderDetailsType) => {
   };
   const modalCloseHandler = (productId: number) => {
     setIsModal((prev) => ({ ...prev, [productId]: false }));
-  };
-  console.log(isModal);
+
+  }
   return (
     <div className={styles.item_box}>
       {order.product_response_list
@@ -38,19 +38,14 @@ const OrderDetails = ({ order }: OrderDetailsType) => {
                     ))
                   : ""}
               </>
-              <button onClick={() => modalOpenHandler(item.product_id)}>
-                리뷰등록하기
-              </button>
-              {isModal[item.product_id] && (
-                <ReviewModal
-                  onClose={() => {
-                    modalCloseHandler(item.product_id);
-                  }}
-                />
-              )}
-            </>
-          ))
-        : ""}
+
+            ))}
+          </>
+          <button onClick={() => modalOpenHandler(item.product_id)}>리뷰등록하기</button>
+          {isModal[item.product_id] && <ReviewModal onClose={() => { modalCloseHandler(item.product_id) }} productid={item.product_id} />}
+        </>
+      ))}
+
     </div>
   );
 };

@@ -11,7 +11,7 @@ import { client } from "@/app/apis";
 const OrderItem = () => {
   const [orders, setOrders] = useRecoilState<Order[]>(orderitemAtom);
   const [activeOrderId, setActiveOrderId] = useState<number | null>(null);
-
+  console.log(orders)
   const toggleAccordion = (orderId: number) => {
     setActiveOrderId(activeOrderId === orderId ? null : orderId);
   };
@@ -28,6 +28,7 @@ const OrderItem = () => {
 
   return (
     <div className={styles.wrapper}>
+
       {orders.length === 0 ? (
         <div>구매내역이 없습니다.</div>
       ) : (
