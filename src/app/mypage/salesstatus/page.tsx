@@ -19,9 +19,8 @@ export default function SalesStatus() {
     setPage(page);
   };
 
-  console.log("rendering");
-
-  const filteredData = data?.slice((page - 1) * 5, (page - 1) * 5 + 5);
+  const filteredData =
+    data && [...data].reverse().slice((page - 1) * 5, (page - 1) * 5 + 5);
 
   console.log("filteredData", filteredData);
   return (

@@ -4,14 +4,10 @@ import { useRecoilValue } from "recoil";
 import UserMenu from "../UserMenu/UserMenu";
 import UserProfile from "../UserProfile/UserProfile";
 import styles from "./MyPageSideBar.module.css";
-import { useSsrComplectedState, userState } from "@/store/userState";
-import { useEffect } from "react";
+import { userState } from "@/store/userState";
 
 export default function MyPageSideBar() {
-  const setSsrCompleted = useSsrComplectedState();
-  useEffect(setSsrCompleted, [setSsrCompleted]);
   const userInfo = useRecoilValue(userState);
-
   return (
     <aside className={styles.container}>
       <UserProfile
