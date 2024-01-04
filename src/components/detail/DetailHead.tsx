@@ -26,6 +26,7 @@ const DetailHead = ({ testData }: any) => {
                 "add_amount": Number(amount.current?.value),
             }
             const url = `http://ec2-52-79-235-118.ap-northeast-2.compute.amazonaws.com:8080/v1/api/cart`
+            // const url = `15.164.96.117:8080/v1/api/cart`
             const response = await shoppingBasketAPI(url, body, token)
             console.log(response);
             console.log(response.data);

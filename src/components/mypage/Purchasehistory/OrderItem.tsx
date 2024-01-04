@@ -10,7 +10,7 @@ import styles from "./OrderItem.module.css";
 const OrderItem = () => {
   const orders = useRecoilValue<Order[]>(orderitemAtom);
   const [activeOrderId, setActiveOrderId] = useState<number | null>(null);
-
+  console.log(orders)
   const toggleAccordion = (orderId: number) => {
     setActiveOrderId(activeOrderId === orderId ? null : orderId);
   };
@@ -22,8 +22,8 @@ const OrderItem = () => {
           order.order_status === "배송중"
             ? styles.item_statusinprogress
             : order.order_status === "배송완료"
-            ? styles.item_statuscompleted
-            : "";
+              ? styles.item_statuscompleted
+              : "";
         return (
           <div key={order.order_id} className={styles.item_wrapper}>
             <div
