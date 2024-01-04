@@ -1,8 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    // domains: ["blog.kakaocdn.net", "cdn.pixabay.com"],
-    domains: ["image.msscdn.net"],
+    domains: [
+      "blog.kakaocdn.net",
+      "cdn.pixabay.com",
+      "supingmall-image-uploader.s3.ap-northeast-2.amazonaws.com",
+      "image.msscdn.net",
+    ],
   },
 };
 

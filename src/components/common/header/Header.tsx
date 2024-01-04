@@ -27,8 +27,8 @@ export default function Header() {
   const userInfoContent =
     userInfo.role === "" ? (
       <>
-        <Link href={"/login"}>로그인</Link>
-        <Link href={"/join"}>회원가입</Link>
+        <S.LinkButtonWhite href={"/login"}>로그인</S.LinkButtonWhite>
+        <S.LinkButton href={"/join"}>회원가입</S.LinkButton>
       </>
     ) : (
       <>
@@ -36,8 +36,8 @@ export default function Header() {
           {userInfo.username}
           <span>님</span>
         </S.UsernameText>
-        <Link href={"/mypage"}>마이페이지</Link>
-        <Link href={"/logout"}>로그아웃</Link>
+        <S.LinkButtonWhite href={"/mypage"}>마이페이지</S.LinkButtonWhite>
+        <S.LinkButton href={"/logout"}>로그아웃</S.LinkButton>
       </>
     );
   const setSsrCompleted = useSsrComplectedState();

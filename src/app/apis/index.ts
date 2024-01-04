@@ -27,7 +27,6 @@ client.interceptors.response.use(
   (response: AxiosResponse): AxiosResponse => {
     const headers = response.headers;
     const token = headers["token"];
-
     if (token) {
       setItem("Token", token);
     }
@@ -36,10 +35,13 @@ client.interceptors.response.use(
   (error: AxiosError<ErrorResponse>) => {
     const handelSignOut = () => {
       removeItem("Token");
+      removeItem("USERINFO");
+      window.location.href = "/logout";
     };
-    if (error.response?.status === 403) {
+    if (error.response?.status === 406) {
       handelSignOut();
     }
+    return error;
   }
 );
 

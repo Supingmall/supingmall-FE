@@ -54,8 +54,31 @@ export const UserInfoBox = styled.div`
 `;
 
 export const UsernameText = styled.p`
+  display: flex;
+  align-items: center;
   color: #bb00bb;
   > span {
     color: black;
   }
+`;
+
+export const LinkButton = styled(Link)`
+  background-color: #c79be2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  color: white;
+`;
+
+export const LinkButtonWhite = styled(Link)`
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  color: #c79be2;
+  border: 1px solid #c79be2;
 `;
