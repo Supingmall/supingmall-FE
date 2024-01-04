@@ -1,4 +1,5 @@
 import { fetchData } from "@/app/apis/detailageApi";
+import Header from "@/components/common/header/Header";
 import DetailHead from "@/components/detail/DetailHead";
 import { isDataView } from "util/types";
 
@@ -12,6 +13,7 @@ const Detail = async (props: any) => {
     return (
         <div>
             <div>
+                <Header></Header>
                 {data ? <DetailHead testData={data} /> : "데이터안옴"}
             </div>
         </div>

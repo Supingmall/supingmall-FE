@@ -11,6 +11,7 @@ import { shoppingBasketAPI } from "@/app/apis/detailageApi";
 import { url } from "inspector";
 import axios from "axios";
 
+
 const DetailHead = ({ testData }: any) => {
     console.log(testData)
     const [selectOptionId, setSelectOptionId] = useState<number | null>(null)
@@ -38,6 +39,8 @@ const DetailHead = ({ testData }: any) => {
     if (testData) {
         return (
             <div className={style["detailpage"]}>
+                <a href="/"><div>뒤로가기</div></a>
+
                 <div className={style['detail-head__container']}>
                     <div className={style['detail-head__imagebox']}>
                         <img className={style['detail-head__image']} src={testData.productPhoto
