@@ -175,7 +175,9 @@ export default function AddProductForm() {
               inputRef={stockRef}
               isNumber
             />
-            <button onClick={handleClick}>+++</button>
+            <button onClick={handleClick} className={styles.addButton}>
+              +
+            </button>
           </div>
           <OptionList optionList={optionList} deleteOption={deleteOption} />
         </div>
@@ -186,7 +188,7 @@ export default function AddProductForm() {
           <ImageUploader images={imgList} setImages={setImgList} max={2} />
         </div>
       </div>
-      <button>상품 등록</button>
+      <button className={styles.button}>상품 등록</button>
     </form>
   );
 }

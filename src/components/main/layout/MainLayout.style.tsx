@@ -1,6 +1,15 @@
 import styled from "@emotion/styled";
 export const MainLayout = styled.div`
   width: 100%;
+  .search-title {
+    font-size: 3rem;
+    margin: 20px;
+    span {
+      color: var(--main-color);
+      font-weight: 700;
+      margin-left: 10px;
+    }
+  }
 
   @media only screen and (min-width: 1024px) {
     .itemContainer {

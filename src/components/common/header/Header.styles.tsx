@@ -11,6 +11,35 @@ export const HeaderContainer = styled.header`
   align-items: center;
   box-sizing: border-box;
   padding: 0 5rem;
+  form {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 3px 8px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    /* background-color: pink; */
+    input {
+      width: 300px;
+      height: 40px;
+      outline: none;
+      border: none;
+      background-color: transparent;
+      padding-right: 12px;
+    }
+    button {
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 7px;
+      transition: all 0.3s;
+      :hover {
+        background-color: #ddd;
+      }
+    }
+  }
 `;
 
 export const HeaderLogo = styled.h1`
@@ -25,8 +54,42 @@ export const UserInfoBox = styled.div`
 `;
 
 export const UsernameText = styled.p`
+  display: flex;
+  align-items: center;
   color: #bb00bb;
   > span {
     color: black;
   }
+`;
+
+export const LinkButton = styled(Link)`
+  background-color: #c79be2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  color: white;
+`;
+
+export const LinkButtonWhite = styled(Link)`
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  color: #c79be2;
+  border: 1px solid #c79be2;
+`;
+
+export const Cartbutton = styled(Link)`
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  color: #c79be2;
+  border: 1px solid #c79be2;
 `;

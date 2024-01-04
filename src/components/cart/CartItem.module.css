@@ -1,0 +1,29 @@
+.cart_box {
+  width: 500px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+.cart_title {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+}
+.cart_itembox {
+  display: flex;
+}
+.cart_img {
+  width: 130px;
+  height: 130px;
+}
+.cart_total_price {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px 10px 0 0;
+}
+.option {
+  margin: 1rem 0 0 5rem;
+  font-size: 1.4rem;
+}

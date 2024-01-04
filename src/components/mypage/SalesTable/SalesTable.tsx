@@ -4,14 +4,13 @@ import Link from "next/link";
 import styles from "./SalesTable.module.css";
 import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
-import { getSellingProduct } from "@/app/apis/client/sales";
+import { SalesProduct, getSellingProduct } from "@/app/apis/client/sales";
 
-export default function SalesTable() {
-  const { data: sales_status } = useQuery({
-    queryKey: ["salesProduct"],
-    queryFn: getSellingProduct,
-  });
-
+export default function SalesTable({
+  sales_status,
+}: {
+  sales_status: SalesProduct[] | undefined;
+}) {
   const transDate = (date: string) => {
     return date.split("T")[0];
   };
@@ -32,7 +31,7 @@ export default function SalesTable() {
         <div className={styles.cell}>더보기</div>
       </div>
       {sales_status
-        ? [...sales_status].reverse().map((status) => {
+        ? [...sales_status].map((status) => {
             return (
               <div key={status.product_option_id} className={styles.row}>
                 <div className={styles.cell}>

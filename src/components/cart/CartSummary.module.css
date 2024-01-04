@@ -1,0 +1,12 @@
+.wrapper {
+  flex: 1;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+}
+.tatal_box {
+  font-size: 3rem;
+}
+.total_price {
+  color: darkorchid;
+}

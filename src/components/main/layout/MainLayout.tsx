@@ -1,52 +1,76 @@
 "use client";
 
-import { mockData } from "@/app/mock";
 import * as S from "./MainLayout.style";
 import { NaviBar } from "../naviBar/NaviBar";
-import Button from "@/components/common/button/Button";
 import { CategoryTitle } from "../categoryTitle/CategoryTitle";
 import Item from "../Item/Item";
-import Input from "@/components/common/input/Input";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { getMainItem, getSearchItem } from "@/app/apis/client/mainItem";
+import { useRecoilValue } from "recoil";
+import { categorySelector } from "@/store/atoms";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
 const MainLayout = () => {
+  const category = useRecoilValue(categorySelector);
+  // const [ref, inView] = useInView();
+  // console.log("category ::", category);
+
+  // const page = 0;
+
+  const { data: getItem, isError } = useQuery({
+    queryKey: ["getProduct", { category }],
+    queryFn: () => getMainItem({ category, pageParam: 0 }),
+  });
+
+  // console.log("getItem ::", getItem);
   /**Item render하는 함수 */
-  const renderItem = () => {
-    const data = mockData; // 이 부분 통신 로직으로 수정
-    if (data.code === "SU") {
-      return data.product_list.map((item) => {
-        return <Item key={item.product_id} item={item} />;
-      });
-    }
-  };
+  // const renderItem = () => {
+  //   if (getItem?.code === "SU") {
+  //     return getItem.product_list.content.map((item) => {
+  //       return <Item key={item.product_id} item={item} />;
+  //     });
+  //   }
+  // };
 
-  const click = () => {
-    alert("눌렸어요");
-  };
+  // const { data, fetchNextPage, hasNextPage } = useInfiniteQuery(
+  // ["getProductList"],
+  // // ({ pageParam = 0 }) => getMainItem({ category, page: pageParam }),
+  //  ({ pageParam = 1 }) => getMainItem({category,pageParam}),
+  //  {
+  //     select: data => ({
+  //       pages: data.pages,
+  //       pageParams: data.pageParams,
+  //     }),
+  //     getNextPageParam: (lastPage, pages) => lastPage.nextCursor,
+  //   }
+  // );
+  // {
+  //   getNextPageParam:(lastPage) =>{
+  //     const page = lastPage.data.page;
+  //     if()
+  //   }
+  // }
+  // );
 
-  // useEffect(()=>{},[]) // 무한스크롤
+  // useEffect(() => {
+  //   if (inView && hasNextPage) {
+  //     fetchNextPage();
+  //   }
+  // }, [inView, hasNextPage, fetchNextPage]);
   return (
     <S.MainLayout>
-      {/* <Button
-        desc="굵고 흰색 글씨로"
-        size="big"
-        bg="#00305B"
-        color="#fff"
-        bold={700}
-        onClick={click}
-      />
-      <Button desc="초록배경이여랏" size="medium" bg="#9BE400" bold={300} />
-      <Button desc="내용을 넣어볼까?" size="small" color="#FA6C67" /> */}
-
-      {/* <Input placeholder="비밀번호를 입력해주세요." size="big" /> */}
-      {/* <Input size="big" placeHolder="big" />
-      <Input size="medium" placeHolder="medium" />
-      <Input size="small" placeHolder="small" /> */}
-
-      {/* <S.HeaderWrap>헤더입니다.</S.HeaderWrap> */}
       <NaviBar />
+
       <S.ItemContainerWrap>
-        <CategoryTitle />
-        <S.ItemContainer>{renderItem()}</S.ItemContainer>
+        <CategoryTitle /> {isError && <p>검색어와 일치하는 상품이 없습니다.</p>}
+        {!isError && (
+          <S.ItemContainer>
+            {getItem?.product_list.content.map((item) => (
+              <Item key={item.product_id} item={item} />
+            ))}
+          </S.ItemContainer>
+        )}
       </S.ItemContainerWrap>
     </S.MainLayout>
   );

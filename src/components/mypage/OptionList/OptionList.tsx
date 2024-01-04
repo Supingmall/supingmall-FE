@@ -12,7 +12,7 @@ export default function OptionList({
   deleteOption,
 }: OptionListProps) {
   return (
-    <ul>
+    <ul className={styles.container}>
       {optionList?.map((v, i) => {
         return (
           <OptionItem

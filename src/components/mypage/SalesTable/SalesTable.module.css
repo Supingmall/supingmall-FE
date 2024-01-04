@@ -58,5 +58,5 @@
   justify-content: start;
   padding-right: 0;
   gap: 2rem;
-  width: 30rem;
+  min-width: 30rem;
 }
